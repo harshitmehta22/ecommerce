@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.px-3 {
+  height: 38px;
+  padding-right: 1rem!important;
+  padding-left: 1rem!important;
+}
+.btnnew{
+  color: #fff;
+}
