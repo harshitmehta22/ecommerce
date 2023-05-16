@@ -70,7 +70,7 @@ const Cartpage = () => {
                               id="form1"
                               min="0"
                               name="quantity"
-                              value="1"
+                              value={data.quantity}
                               type="number"
                               className="form-control"
                             />
