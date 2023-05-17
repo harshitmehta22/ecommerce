@@ -1,9 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartTotal } from "../features/cartSlice";
 const Cartpage = () => {
   const { cart, totalQuantity, totalPrice } = useSelector(
     (state) => state.allCart
   );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [cart]);
 
   return (
     <>
@@ -13,7 +18,7 @@ const Cartpage = () => {
             <div className="col-md-8">
               <div className="card mb-4">
                 <div className="card-header py-3">
-                  <h5 className="mb-0">Cart - 2 items</h5>
+                  <h5 className="mb-0">Cart - {totalQuantity} items</h5>
                 </div>
                 <div className="card-body">
                   {cart.map((data) => (
@@ -88,7 +93,7 @@ const Cartpage = () => {
                         </div>
 
                         <p className="text-start text-md-center">
-                          <strong>$17.99</strong>
+                          <strong>{data.price}</strong>
                         </p>
                       </div>
                     </div>
